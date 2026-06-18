@@ -1,0 +1,53 @@
+{
+    "fr": {
+        "title": "Mon Portfolio",
+        "subtitle": "Ingénieur informatique",
+        "author_name": "Jean Dupont",
+        "author_job": "Développeur Full-Stack",
+        "author_desc": "Passionné par le web sémantique et l'accessibilité.",
+        "projects_title": "Mes Projets",
+        "project1_title": "Site e-commerce",
+        "project1_desc": "Plateforme de vente en ligne avec paiement sécurisé.",
+        "project2_title": "Application mobile",
+        "project2_desc": "Application de suivi de fitness en React Native.",
+        "skills_title": "Compétences",
+        "skills_list": "<li>PHP / Symfony</li><li>JavaScript / React</li><li>SQL / MongoDB</li>",
+        "contact_title": "Contact",
+        "contact_info": "📧 jean.dupont@example.com",
+        "video_title": "Vidéo de présentation"
+    },
+    "en": {
+        "title": "My Portfolio",
+        "subtitle": "Computer Science Engineer",
+        "author_name": "John Doe",
+        "author_job": "Full-Stack Developer",
+        "author_desc": "Passionate about semantic web and accessibility.",
+        "projects_title": "My Projects",
+        "project1_title": "E-commerce website",
+        "project1_desc": "Online sales platform with secure payment.",
+        "project2_title": "Mobile app",
+        "project2_desc": "Fitness tracking app in React Native.",
+        "skills_title": "Skills",
+        "skills_list": "<li>PHP / Symfony</li><li>JavaScript / React</li><li>SQL / MongoDB</li>",
+        "contact_title": "Contact",
+        "contact_info": "📧 john.doe@example.com",
+        "video_title": "Presentation video"
+    },
+    "ja": {
+        "title": "私のポートフォリオ",
+        "subtitle": "情報工学エンジニア",
+        "author_name": "ジャン・デュポン",
+        "author_job": "フルスタック開発者",
+        "author_desc": "セマンティックウェブとアクセシビリティに情熱を持っています。",
+        "projects_title": "プロジェクト",
+        "project1_title": "Eコマースサイト",
+        "project1_desc": "安全な支払いを備えたオンライン販売プラットフォーム。",
+        "project2_title": "モバイルアプリ",
+        "project2_desc": "React Native で作られたフィットネストラッキングアプリ。",
+        "skills_title": "スキル",
+        "skills_list": "<li>PHP / Symfony</li><li>JavaScript / React</li><li>SQL / MongoDB</li>",
+        "contact_title": "お問い合わせ",
+        "contact_info": "📧 jean.dupont@example.com",
+        "video_title": "プレゼンテーションビデオ"
+    }
+}

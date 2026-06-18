@@ -1,11 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Portfolio multilingue</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Balises link alternate générées dynamiquement par script.js -->
 </head>
 <body>
-    <h1>bonjour vous vous trouvez sur le portfolio de Ruiz Nahel</h1>
+    <!-- Boutons de langue (position fixe) -->
+    <div id="lang-switcher">
+        <button data-lang="fr" aria-label="Français">🇫🇷 FR</button>
+        <button data-lang="en" aria-label="English">🇬🇧 EN</button>
+        <button data-lang="ja" aria-label="日本語">🇯🇵 JA</button>
+    </div>
+
+    <!-- Contenu du portfolio (balises avec data-i18n) -->
+    <main>
+        <!-- Section Accueil -->
+        <section id="home">
+            <h1 data-i18n="title">Titre</h1>
+            <p data-i18n="subtitle">Sous‑titre</p>
+            <div itemscope itemtype="https://schema.org/Person">
+                <span itemprop="name" data-i18n="author_name">Nom</span>
+                <span itemprop="jobTitle" data-i18n="author_job">Métier</span>
+                <span itemprop="description" data-i18n="author_desc">Description</span>
+            </div>
+        </section>
+
+        <!-- Section Projets -->
+        <section id="projects">
+            <h2 data-i18n="projects_title">Projets</h2>
+            <article>
+                <h3 data-i18n="project1_title">Projet 1</h3>
+                <p data-i18n="project1_desc">Description du projet 1</p>
+            </article>
+            <article>
+                <h3 data-i18n="project2_title">Projet 2</h3>
+                <p data-i18n="project2_desc">Description du projet 2</p>
+            </article>
+        </section>
+
+        <!-- Section Compétences -->
+        <section id="skills">
+            <h2 data-i18n="skills_title">Compétences</h2>
+            <ul data-i18n="skills_list">
+                <li>Compétence 1</li>
+                <li>Compétence 2</li>
+            </ul>
+        </section>
+
+        <!-- Section Contact -->
+        <section id="contact">
+            <h2 data-i18n="contact_title">Contact</h2>
+            <p data-i18n="contact_info">Email : example@domain.com</p>
+        </section>
+
+        <!-- Vidéo sous‑titrée -->
+        <section id="video">
+            <h2 data-i18n="video_title">Présentation</h2>
+            <video controls preload="metadata" id="presentation-video">
+                <source src="video.mp4" type="video/mp4">
+                <track kind="subtitles" srclang="fr" label="Français" src="subtitles_fr.vtt" default>
+                <track kind="subtitles" srclang="en" label="English" src="subtitles_en.vtt">
+                <track kind="subtitles" srclang="ja" label="日本語" src="subtitles_ja.vtt">
+            </video>
+        </section>
+    </main>
+
+    <!-- Formulaire POST (caché) pour simuler la priorité POST -->
+    <form id="post-form" method="POST" style="display:none;">
+        <input type="hidden" name="lang" id="post-lang">
+    </form>
+
+    <script src="script.js"></script>
 </body>
 </html>

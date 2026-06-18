@@ -1,0 +1,55 @@
+/* Reset & mise en page */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 80px 20px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+h1, h2, h3 {
+    margin-bottom: 0.5rem;
+}
+section {
+    margin-bottom: 3rem;
+    padding-top: 20px;
+}
+
+/* Sélecteur de langue fixe */
+#lang-switcher {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: rgba(255,255,255,0.9);
+    padding: 8px 12px;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+#lang-switcher button {
+    margin: 0 4px;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+#lang-switcher button:hover {
+    background: #e0e0e0;
+}
+#lang-switcher button[data-lang="fr"] { background: #d4edda; }
+#lang-switcher button[data-lang="en"] { background: #cce5ff; }
+#lang-switcher button[data-lang="ja"] { background: #f8d7da; }
+
+/* Vidéo */
+video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 1rem;
+}

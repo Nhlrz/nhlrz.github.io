@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Nahel Ruiz CV data — English version.
+  Keep this file in sync with cv-fr.xml (the native source) when content changes.
+-->
+<cv lang="en" dir="ltr">
+
+  <person>
+    <name>Nahel Ruiz</name>
+    <headline>Computer Engineering Student · Apprentice at Docaposte</headline>
+    <summary>Computer engineering student at Institut Galilée, on a work-study contract at Docaposte. I enjoy designing, automating and hardening systems — with a soft spot for Python, Linux and data processing.</summary>
+    <location>Saint-Gratien, France</location>
+    <email>nahel.rzh@gmail.com</email>
+    <phone display="+33 7 69 19 56 04" tel="+33769195604"/>
+  </person>
+
+  <ui>
+    <metaLabel key="location">Location</metaLabel>
+    <metaLabel key="email">Email</metaLabel>
+    <metaLabel key="phone">Phone</metaLabel>
+    <action key="print">Print / PDF</action>
+    <langName>English</langName>
+    <footer>Page generated from XML data · structured with RDFa &amp; JSON-LD (schema.org) for agents.</footer>
+  </ui>
+
+  <section id="experience" title="Professional Experience">
+    <!-- TODO Nahel: replace the title and bullets below with your real Docaposte responsibilities. -->
+    <job current="true">
+      <role>Software Engineering Apprentice</role>
+      <org>Docaposte</org>
+      <period>Sep 2024 — Present</period>
+      <bullets>
+        <bullet>Contributing to the development and automation of digital services (Python, Linux, Docker).</bullet>
+        <bullet>Taking part in software engineering activities within the technical teams.</bullet>
+      </bullets>
+    </job>
+    <job>
+      <role>Big Data Intern</role>
+      <org>Société Générale</org>
+      <period>2019</period>
+      <bullets>
+        <bullet>Deepened knowledge of big data management in a banking environment.</bullet>
+        <bullet>Explored Hive and Hadoop tools for processing large-scale data.</bullet>
+        <bullet>Studied information management processes in detail.</bullet>
+      </bullets>
+    </job>
+  </section>
+
+  <section id="education" title="Education">
+    <school type="university">
+      <degree>Engineering degree in Computer Science (in progress)</degree>
+      <org>Institut Galilée</org>
+      <period>Sep 2024 — Jun 2027</period>
+      <bullets>
+        <bullet>File processing and compression project.</bullet>
+        <bullet>Automation projects using Python and Linux systems.</bullet>
+      </bullets>
+    </school>
+    <school type="university">
+      <degree>Integrated preparatory program in Mathematics &amp; Computer Science</degree>
+      <org>Université Sorbonne Paris Nord</org>
+      <period>Sep 2022 — Jun 2024</period>
+      <bullets>
+        <bullet>Graduated with High Honors (Mention Très Bien).</bullet>
+        <bullet>Algorithms and automation projects (Python, Linux).</bullet>
+      </bullets>
+    </school>
+    <school type="highschool">
+      <degree>General Baccalauréat — Mathematics &amp; Engineering Sciences</degree>
+      <org>Lycée Gustave Monod, Enghien-les-Bains</org>
+      <period>Sep 2019 — Jun 2022</period>
+      <bullets>
+        <bullet>Graduated with Honors (Mention Bien).</bullet>
+        <bullet>Python programming projects and Linux systems.</bullet>
+      </bullets>
+    </school>
+  </section>
+
+  <section id="skills" title="Skills">
+    <skill name="Python">Automation &amp; development</skill>
+    <skill name="Linux">Operating systems</skill>
+    <skill name="Bash">Scripting</skill>
+    <skill name="Docker">Containers</skill>
+    <skill name="C">Strong command</skill>
+  </section>
+
+  <section id="languages" title="Languages">
+    <language name="French" level="native">Native</language>
+    <language name="English" level="advanced">Advanced</language>
+    <language name="Spanish" level="intermediate">Intermediate</language>
+  </section>
+
+</cv>

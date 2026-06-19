@@ -1,78 +1,99 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio multilingue</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Balises link alternate générées dynamiquement par script.js -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nahel Ruiz — Élève-ingénieur en informatique</title>
+  <meta name="description" content="Portfolio de Nahel Ruiz, élève-ingénieur en informatique à l'Institut Galilée et alternant chez Docaposte. Python, Linux, Bash, Docker, C." />
+  <meta name="author" content="Nahel Ruiz" />
+
+  <!-- Open Graph (partage social / agents) -->
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Nahel Ruiz — Élève-ingénieur en informatique" />
+  <meta property="og:description" content="Portfolio trilingue (FR / EN / AR) d'un élève-ingénieur en informatique, alternant chez Docaposte." />
+  <meta property="profile:first_name" content="Nahel" />
+  <meta property="profile:last_name" content="Ruiz" />
+
+  <!--
+    Données structurées statiques en JSON-LD (schema.org/Person).
+    Présentes dès le chargement, sans JavaScript : c'est la source la plus
+    fiable pour les agents/crawlers qui n'exécutent pas le JS.
+    Le RDFa (ci-dessous, généré par React) duplique ces infos dans le DOM visible.
+  -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Nahel Ruiz",
+    "givenName": "Nahel",
+    "familyName": "Ruiz",
+    "jobTitle": "Élève-ingénieur en informatique",
+    "description": "Élève-ingénieur en informatique à l'Institut Galilée, en alternance chez Docaposte. Python, Linux, automatisation et traitement de données.",
+    "email": "mailto:nahel.rzh@gmail.com",
+    "telephone": "+33769195604",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Saint-Gratien",
+      "addressCountry": "FR"
+    },
+    "knowsLanguage": [
+      { "@type": "Language", "name": "French" },
+      { "@type": "Language", "name": "English" },
+      { "@type": "Language", "name": "Spanish" }
+    ],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Docaposte"
+    },
+    "hasOccupation": {
+      "@type": "Occupation",
+      "name": "Software Engineering Apprentice"
+    },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "Institut Galilée" },
+      { "@type": "CollegeOrUniversity", "name": "Université Sorbonne Paris Nord" },
+      { "@type": "HighSchool", "name": "Lycée Gustave Monod" }
+    ],
+    "knowsAbout": [
+      "Python", "Linux", "Bash", "Docker", "C",
+      "Big Data", "Hadoop", "Hive", "Automation", "Containers"
+    ]
+  }
+  </script>
+
+  <!-- Polices : IBM Plex Sans (latin), IBM Plex Mono (utilitaire/data), IBM Plex Sans Arabic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
+
 <body>
-    <!-- Boutons de langue (position fixe) -->
-    <div id="lang-switcher">
-        <button data-lang="fr" aria-label="Français">🇫🇷 FR</button>
-        <button data-lang="en" aria-label="English">🇬🇧 EN</button>
-        <button data-lang="ja" aria-label="日本語">🇯🇵 JA</button>
+  <!--
+    Racine RDFa : typeof="Person" + vocab schema.org.
+    React rend ses enfants ici ; les attributs property="..." sur le contenu
+    rendu permettent l'extraction sémantique par des agents qui exécutent le JS.
+  -->
+  <div id="root" vocab="https://schema.org/" typeof="Person">
+    <div class="boot">Chargement…</div>
+  </div>
+
+  <!-- Repli sans JavaScript : contenu minimal lisible par humains et agents -->
+  <noscript>
+    <div class="noscript">
+      <h1>Nahel Ruiz</h1>
+      <p>Élève-ingénieur en informatique à l'Institut Galilée · Alternant chez Docaposte.</p>
+      <p>Saint-Gratien, France — <a href="mailto:nahel.rzh@gmail.com">nahel.rzh@gmail.com</a> — +33 7 69 19 56 04</p>
+      <p>Compétences : Python, Linux, Bash, Docker, C. Langues : Français, Anglais, Espagnol.</p>
+      <p><em>Activez JavaScript pour afficher le portfolio interactif (FR / EN / AR).</em></p>
     </div>
+  </noscript>
 
-    <!-- Contenu du portfolio (balises avec data-i18n) -->
-    <main>
-        <!-- Section Accueil -->
-        <section id="home">
-            <h1 data-i18n="title">Titre</h1>
-            <p data-i18n="subtitle">Sous‑titre</p>
-            <div itemscope itemtype="https://schema.org/Person">
-                <span itemprop="name" data-i18n="author_name">Nom</span>
-                <span itemprop="jobTitle" data-i18n="author_job">Métier</span>
-                <span itemprop="description" data-i18n="author_desc">Description</span>
-            </div>
-        </section>
-
-        <!-- Section Projets -->
-        <section id="projects">
-            <h2 data-i18n="projects_title">Projets</h2>
-            <article>
-                <h3 data-i18n="project1_title">Projet 1</h3>
-                <p data-i18n="project1_desc">Description du projet 1</p>
-            </article>
-            <article>
-                <h3 data-i18n="project2_title">Projet 2</h3>
-                <p data-i18n="project2_desc">Description du projet 2</p>
-            </article>
-        </section>
-
-        <!-- Section Compétences -->
-        <section id="skills">
-            <h2 data-i18n="skills_title">Compétences</h2>
-            <ul data-i18n="skills_list">
-                <li>Compétence 1</li>
-                <li>Compétence 2</li>
-            </ul>
-        </section>
-
-        <!-- Section Contact -->
-        <section id="contact">
-            <h2 data-i18n="contact_title">Contact</h2>
-            <p data-i18n="contact_info">Email : example@domain.com</p>
-        </section>
-
-        <!-- Vidéo sous‑titrée -->
-        <section id="video">
-            <h2 data-i18n="video_title">Présentation</h2>
-            <video controls preload="metadata" id="presentation-video">
-                <source src="video.mp4" type="video/mp4">
-                <track kind="subtitles" srclang="fr" label="Français" src="subtitles_fr.vtt" default>
-                <track kind="subtitles" srclang="en" label="English" src="subtitles_en.vtt">
-                <track kind="subtitles" srclang="ja" label="日本語" src="subtitles_ja.vtt">
-            </video>
-        </section>
-    </main>
-
-    <!-- Formulaire POST (caché) pour simuler la priorité POST -->
-    <form id="post-form" method="POST" style="display:none;">
-        <input type="hidden" name="lang" id="post-lang">
-    </form>
-
-    <script src="script.js"></script>
+  <!-- React + Babel via CDN (aucune étape de build) -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
+  <script type="text/babel" data-presets="react" src="js/app.jsx"></script>
 </body>
 </html>

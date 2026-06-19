@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Données du CV de Nahel Ruiz — version française (langue native).
+  Ce fichier est la source de vérité du contenu : modifiez le texte ici,
+  pas dans le code. Voir cv-en.xml et cv-ar.xml pour les autres langues.
+-->
+<cv lang="fr" dir="ltr">
+
+  <person>
+    <name>Nahel Ruiz</name>
+    <headline>Élève-ingénieur en informatique · Alternant chez Docaposte</headline>
+    <summary>Élève-ingénieur en informatique à l'Institut Galilée, en alternance chez Docaposte. J'aime concevoir, automatiser et fiabiliser des systèmes — avec un goût particulier pour Python, Linux et le traitement de données.</summary>
+    <location>Saint-Gratien, France</location>
+    <email>nahel.rzh@gmail.com</email>
+    <phone display="07 69 19 56 04" tel="+33769195604"/>
+  </person>
+
+  <ui>
+    <metaLabel key="location">Localisation</metaLabel>
+    <metaLabel key="email">Email</metaLabel>
+    <metaLabel key="phone">Téléphone</metaLabel>
+    <action key="print">Imprimer / PDF</action>
+    <langName>Français</langName>
+    <footer>Page générée à partir de données XML · structurée en RDFa &amp; JSON-LD (schema.org) pour les agents.</footer>
+  </ui>
+
+  <section id="experience" title="Expérience professionnelle">
+    <!-- TODO Nahel : remplace l'intitulé et les puces ci-dessous par tes vraies missions chez Docaposte. -->
+    <job current="true">
+      <role>Alternant Ingénieur Informatique</role>
+      <org>Docaposte</org>
+      <period>Sep. 2024 — Aujourd'hui</period>
+      <bullets>
+        <bullet>Contribution au développement et à l'automatisation de services numériques (Python, Linux, Docker).</bullet>
+        <bullet>Participation aux activités d'ingénierie logicielle au sein des équipes techniques.</bullet>
+      </bullets>
+    </job>
+    <job>
+      <role>Stagiaire en Big Data</role>
+      <org>Société Générale</org>
+      <period>2019</period>
+      <bullets>
+        <bullet>Approfondissement des connaissances en gestion du Big Data dans un environnement bancaire.</bullet>
+        <bullet>Exploration des outils Hive et Hadoop pour le traitement de données volumineuses.</bullet>
+        <bullet>Étude détaillée des processus de gestion de l'information.</bullet>
+      </bullets>
+    </job>
+  </section>
+
+  <section id="education" title="Formation">
+    <school type="university">
+      <degree>Préparation du diplôme d'ingénieur informatique</degree>
+      <org>Institut Galilée</org>
+      <period>Sep. 2024 — Juin 2027</period>
+      <bullets>
+        <bullet>Projet de traitement et de compression de fichiers.</bullet>
+        <bullet>Projets d'automatisation avec Python et systèmes Linux.</bullet>
+      </bullets>
+    </school>
+    <school type="university">
+      <degree>Classe préparatoire intégrée en mathématiques et informatique</degree>
+      <org>Université Sorbonne Paris Nord</org>
+      <period>Sep. 2022 — Juin 2024</period>
+      <bullets>
+        <bullet>Mention Très Bien.</bullet>
+        <bullet>Projets en algorithmique et automatisation (Python, Linux).</bullet>
+      </bullets>
+    </school>
+    <school type="highschool">
+      <degree>Baccalauréat Général — spécialités Maths &amp; Sciences de l'ingénieur</degree>
+      <org>Lycée Gustave Monod, Enghien-les-Bains</org>
+      <period>Sep. 2019 — Juin 2022</period>
+      <bullets>
+        <bullet>Mention Bien.</bullet>
+        <bullet>Projets de programmation en Python et systèmes Linux.</bullet>
+      </bullets>
+    </school>
+  </section>
+
+  <section id="skills" title="Compétences">
+    <skill name="Python">Automatisation &amp; développement</skill>
+    <skill name="Linux">Systèmes d'exploitation</skill>
+    <skill name="Bash">Scripting</skill>
+    <skill name="Docker">Conteneurs</skill>
+    <skill name="C">Maîtrise du langage</skill>
+  </section>
+
+  <section id="languages" title="Langues">
+    <language name="Français" level="native">Natif</language>
+    <language name="Anglais" level="advanced">Avancé</language>
+    <language name="Espagnol" level="intermediate">Intermédiaire</language>
+  </section>
+
+</cv>

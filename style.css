@@ -1,55 +1,384 @@
-/* Reset & mise en page */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* =============================================================
+   Nahel Ruiz — portfolio
+   Direction : épuré & pro, thème clair.
+   Système typographique : IBM Plex Sans (texte/titres),
+   IBM Plex Mono (libellés "data" façon code), IBM Plex Sans Arabic (AR).
+   Signature : rail chronologique + eyebrows monospace en style commentaire (//).
+   ============================================================= */
+
+:root {
+  /* Palette — neutres froids + un seul accent bleu nuit, tenu */
+  --bg:          #F2F4F7;
+  --surface:     #FFFFFF;
+  --ink:         #14181F;
+  --muted:       #5B6573;
+  --faint:       #8A93A1;
+  --line:        #E2E6EC;
+  --line-strong: #CDD3DC;
+  --accent:      #1F3C88;
+  --accent-soft: #EAEEF8;
+
+  /* Typographie */
+  --font-sans: "IBM Plex Sans", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-arabic: "IBM Plex Sans Arabic", "IBM Plex Sans", system-ui, sans-serif;
+
+  /* Mesure */
+  --maxw: 720px;
+  --radius: 12px;
+  --pad: clamp(1.25rem, 4vw, 2.5rem);
 }
+
+/* L'arabe bascule la police de toute la page sur la variante arabe d'IBM Plex */
+html[dir="rtl"] { --font-sans: var(--font-arabic); }
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    padding: 80px 20px 20px;
-    max-width: 900px;
-    margin: 0 auto;
-}
-h1, h2, h3 {
-    margin-bottom: 0.5rem;
-}
-section {
-    margin-bottom: 3rem;
-    padding-top: 20px;
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-/* Sélecteur de langue fixe */
-#lang-switcher {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    background: rgba(255,255,255,0.9);
-    padding: 8px 12px;
-    border-radius: 6px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    z-index: 1000;
+/* Placeholder de chargement (remplacé par React) */
+.boot {
+  min-height: 60vh;
+  display: grid;
+  place-items: center;
+  color: var(--faint);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
 }
-#lang-switcher button {
-    margin: 0 4px;
-    padding: 6px 12px;
-    border: 1px solid #ccc;
-    background: #f9f9f9;
-    cursor: pointer;
-    border-radius: 4px;
-    font-size: 0.9rem;
-}
-#lang-switcher button:hover {
-    background: #e0e0e0;
-}
-#lang-switcher button[data-lang="fr"] { background: #d4edda; }
-#lang-switcher button[data-lang="en"] { background: #cce5ff; }
-#lang-switcher button[data-lang="ja"] { background: #f8d7da; }
 
-/* Vidéo */
-video {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin-top: 1rem;
+.noscript {
+  max-width: var(--maxw);
+  margin: 3rem auto;
+  padding: 0 var(--pad);
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- En-tête fixe ---------- */
+.cv-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: saturate(140%) blur(8px);
+  border-block-end: 1px solid var(--line);
+}
+.cv-header-inner {
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding: 0.75rem var(--pad);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.brand {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  font-size: 0.98rem;
+}
+.brand .brand-dot { color: var(--accent); }
+
+.header-tools { display: flex; align-items: center; gap: 0.5rem; }
+
+/* Sélecteur de langue — style "toggle" monospace */
+.lang-switch {
+  display: inline-flex;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--surface);
+}
+.lang-btn {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  padding: 0.34rem 0.62rem;
+  color: var(--muted);
+  cursor: pointer;
+  transition: background-color 0.18s ease, color 0.18s ease;
+}
+.lang-btn + .lang-btn { border-inline-start: 1px solid var(--line); }
+.lang-btn:hover { color: var(--ink); }
+.lang-btn[aria-pressed="true"] {
+  background: var(--accent);
+  color: #fff;
+}
+
+.print-btn {
+  appearance: none;
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 0.34rem 0.7rem;
+  color: var(--muted);
+  cursor: pointer;
+  transition: border-color 0.18s ease, color 0.18s ease;
+}
+.print-btn:hover { color: var(--ink); border-color: var(--faint); }
+
+/* ---------- Conteneur principal ---------- */
+.cv {
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding: clamp(2rem, 6vw, 3.5rem) var(--pad) 4rem;
+}
+
+/* ---------- Hero ---------- */
+.hero { margin-block-end: clamp(2.25rem, 6vw, 3.25rem); }
+.hero-name {
+  font-size: clamp(2.4rem, 8vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  margin: 0 0 0.55rem;
+}
+.hero-headline {
+  font-size: clamp(1.02rem, 2.6vw, 1.18rem);
+  font-weight: 500;
+  color: var(--muted);
+  margin: 0 0 1.1rem;
+}
+.hero-summary {
+  font-size: 1.02rem;
+  color: var(--ink);
+  max-width: 56ch;
+  margin: 0 0 1.5rem;
+}
+
+/* Bandeau "meta" en monospace, façon enregistrement de données */
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.4rem;
+  padding-block: 1rem;
+  border-block: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+}
+.meta-item { display: inline-flex; align-items: baseline; gap: 0.5rem; }
+.meta-key { color: var(--faint); }
+.meta-val { color: var(--ink); }
+.meta-val a { color: var(--ink); }
+.meta-val a:hover { color: var(--accent); }
+
+/* ---------- Sections ---------- */
+.section { margin-block-start: clamp(2.25rem, 6vw, 3.25rem); }
+.section-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--accent);
+  margin: 0 0 1.4rem;
+  letter-spacing: 0.01em;
+}
+.section-eyebrow::before { content: "// "; color: var(--line-strong); }
+
+/* ---------- Rail chronologique (Expérience & Formation) ---------- */
+.timeline {
+  position: relative;
+  margin: 0;
+  padding-inline-start: 1.6rem;
+  border-inline-start: 1.5px solid var(--line);
+}
+.entry { position: relative; padding-block: 0.2rem; }
+.entry + .entry { margin-block-start: 1.9rem; }
+
+/* Le nœud sur le rail */
+.entry::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: calc(-1.6rem - 0.75px);
+  top: 0.5rem;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--line-strong);
+  transform: translateX(-50%);
+}
+html[dir="rtl"] .entry::before { transform: translateX(50%); }
+.entry.is-current::before { background: var(--accent); border-color: var(--accent); }
+
+.entry-period {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--faint);
+  margin: 0 0 0.3rem;
+  letter-spacing: 0.01em;
+}
+.entry-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.3;
+}
+.entry-org {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--accent);
+  margin: 0.1rem 0 0;
+}
+.entry-bullets {
+  margin: 0.6rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.4rem;
+}
+.entry-bullets li {
+  position: relative;
+  padding-inline-start: 1.05rem;
+  font-size: 0.93rem;
+  color: var(--muted);
+}
+.entry-bullets li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0.62em;
+  width: 5px;
+  height: 5px;
+  border-radius: 1px;
+  background: var(--line-strong);
+}
+
+/* ---------- Compétences ---------- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 0.7rem;
+}
+.skill {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 0.85rem 0.95rem;
+  transition: border-color 0.18s ease, transform 0.18s ease;
+}
+.skill:hover { border-color: var(--line-strong); transform: translateY(-2px); }
+.skill-name {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+.skill-desc {
+  display: block;
+  margin-block-start: 0.25rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+/* ---------- Langues ---------- */
+.langs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.7rem;
+}
+.lang-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.7rem 0.95rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.lang-name { font-weight: 600; font-size: 0.96rem; }
+.lang-level {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 0.16rem 0.5rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+/* ---------- Pied de page ---------- */
+.cv-footer {
+  margin-block-start: clamp(2.5rem, 7vw, 4rem);
+  padding-block-start: 1.4rem;
+  border-block-start: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--faint);
+  line-height: 1.7;
+}
+.cv-footer .copy { color: var(--muted); }
+
+/* ---------- État d'erreur ---------- */
+.error-state {
+  max-width: var(--maxw);
+  margin: 4rem auto;
+  padding: 1.5rem var(--pad);
+  text-align: center;
+  color: var(--muted);
+}
+.error-state code {
+  font-family: var(--font-mono);
+  background: var(--accent-soft);
+  padding: 0.1rem 0.4rem;
+  border-radius: 6px;
+  color: var(--accent);
+}
+
+/* ---------- Accessibilité : focus visible ---------- */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ---------- Animation d'entrée (subtile) ---------- */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+.animate { animation: rise 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Petits écrans ---------- */
+@media (max-width: 460px) {
+  .cv-header-inner { padding-inline: 1.1rem; }
+  .meta { gap: 0.35rem 1rem; }
+  .header-tools .print-btn { display: none; } /* impression peu utile sur mobile */
+}
+
+/* ---------- Impression (le CV reste un document) ---------- */
+@media print {
+  :root { --bg: #fff; }
+  body { background: #fff; font-size: 11pt; }
+  .cv-header, .cv-footer .gen, .print-btn, .lang-switch { display: none !important; }
+  .cv { max-width: none; padding: 0; }
+  .animate { animation: none !important; }
+  .skill, .lang-row { break-inside: avoid; }
+  .entry { break-inside: avoid; }
+  a { color: var(--ink); }
 }

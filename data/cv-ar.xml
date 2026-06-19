@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  بيانات السيرة الذاتية لناهل رويز — النسخة العربية (من اليمين إلى اليسار).
+  Nahel Ruiz CV data — Arabic version (right-to-left).
+  Keep in sync with cv-fr.xml (the native source).
+-->
+<cv lang="ar" dir="rtl">
+
+  <person>
+    <name>Nahel Ruiz</name>
+    <headline>طالب هندسة معلوماتية · متدرّب بالتناوب لدى دوكابوست</headline>
+    <summary>طالب هندسة معلوماتية بمعهد غاليلي، ومتدرّب بالتناوب لدى دوكابوست. أحبّ تصميم الأنظمة وأتمتتها وتحسين موثوقيتها، مع شغف خاص بلغة Python وأنظمة لينكس ومعالجة البيانات.</summary>
+    <location>سان غراسيان، فرنسا</location>
+    <email>nahel.rzh@gmail.com</email>
+    <phone display="+33 7 69 19 56 04" tel="+33769195604"/>
+  </person>
+
+  <ui>
+    <metaLabel key="location">الموقع</metaLabel>
+    <metaLabel key="email">البريد الإلكتروني</metaLabel>
+    <metaLabel key="phone">الهاتف</metaLabel>
+    <action key="print">طباعة / PDF</action>
+    <langName>العربية</langName>
+    <footer>صفحة مُولّدة من بيانات XML · مُهيكلة بـ RDFa وJSON-LD (schema.org) من أجل الوكلاء.</footer>
+  </ui>
+
+  <section id="experience" title="الخبرة المهنية">
+    <!-- TODO ناهل: استبدل المسمّى الوظيفي والنقاط أدناه بمهامك الحقيقية في دوكابوست. -->
+    <job current="true">
+      <role>متدرّب مهندس برمجيات</role>
+      <org>دوكابوست</org>
+      <period>سبتمبر 2024 — الآن</period>
+      <bullets>
+        <bullet>المساهمة في تطوير وأتمتة الخدمات الرقمية (Python وLinux وDocker).</bullet>
+        <bullet>المشاركة في أنشطة هندسة البرمجيات ضمن الفرق التقنية.</bullet>
+      </bullets>
+    </job>
+    <job>
+      <role>متدرّب في البيانات الضخمة</role>
+      <org>سوسيتيه جنرال</org>
+      <period>2019</period>
+      <bullets>
+        <bullet>تعميق المعرفة بإدارة البيانات الضخمة في بيئة مصرفية.</bullet>
+        <bullet>استكشاف أدوات Hive وHadoop لمعالجة البيانات الكبيرة الحجم.</bullet>
+        <bullet>دراسة مفصّلة لعمليات إدارة المعلومات.</bullet>
+      </bullets>
+    </job>
+  </section>
+
+  <section id="education" title="التعليم">
+    <school type="university">
+      <degree>إعداد دبلوم مهندس في المعلوماتية (قيد الإنجاز)</degree>
+      <org>معهد غاليلي</org>
+      <period>سبتمبر 2024 — يونيو 2027</period>
+      <bullets>
+        <bullet>مشروع في معالجة الملفات وضغطها.</bullet>
+        <bullet>مشاريع أتمتة باستخدام Python وأنظمة لينكس.</bullet>
+      </bullets>
+    </school>
+    <school type="university">
+      <degree>السنوات التحضيرية المدمجة في الرياضيات والمعلوماتية</degree>
+      <org>جامعة السوربون باريس الشمالية</org>
+      <period>سبتمبر 2022 — يونيو 2024</period>
+      <bullets>
+        <bullet>تقدير: حسن جدًا (Mention Très Bien).</bullet>
+        <bullet>مشاريع في الخوارزميات والأتمتة (Python وLinux).</bullet>
+      </bullets>
+    </school>
+    <school type="highschool">
+      <degree>البكالوريا العامة — تخصّصا الرياضيات وعلوم المهندس</degree>
+      <org>ثانوية غوستاف مونو، أنغيان لي بان</org>
+      <period>سبتمبر 2019 — يونيو 2022</period>
+      <bullets>
+        <bullet>تقدير: حسن (Mention Bien).</bullet>
+        <bullet>مشاريع برمجة بلغة Python وأنظمة لينكس.</bullet>
+      </bullets>
+    </school>
+  </section>
+
+  <section id="skills" title="المهارات">
+    <skill name="Python">الأتمتة والتطوير</skill>
+    <skill name="Linux">أنظمة التشغيل</skill>
+    <skill name="Bash">كتابة السكربتات</skill>
+    <skill name="Docker">الحاويات</skill>
+    <skill name="C">إتقان اللغة</skill>
+  </section>
+
+  <section id="languages" title="اللغات">
+    <language name="الفرنسية" level="native">اللغة الأم</language>
+    <language name="الإنجليزية" level="advanced">متقدّم</language>
+    <language name="الإسبانية" level="intermediate">متوسّط</language>
+  </section>
+
+</cv>

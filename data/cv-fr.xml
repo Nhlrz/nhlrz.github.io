@@ -20,12 +20,20 @@
     <metaLabel key="email">Email</metaLabel>
     <metaLabel key="phone">Téléphone</metaLabel>
     <action key="print">Imprimer / PDF</action>
+    <action key="watch">Voir sur YouTube</action>
     <langName>Français</langName>
     <footer>Page générée à partir de données XML · structurée en RDFa &amp; JSON-LD (schema.org) pour les agents.</footer>
   </ui>
 
+  <section id="video" title="Présentation">
+
+    <video type="youtube" youtubeId="InMcm5gqHUs" src="">
+      <title>Vidéo de présentation (video d'exemple car je n'ai pas eu le temps d'en tourné une )</title>
+      <caption>Courte vidéo de présentation, sous-titrée en français, en anglais et en arabe.</caption>
+    </video>
+  </section>
+
   <section id="experience" title="Expérience professionnelle">
-    <!-- TODO Nahel : remplace l'intitulé et les puces ci-dessous par tes vraies missions chez Docaposte. -->
     <job current="true">
       <role>Alternant Ingénieur Informatique</role>
       <org>Docaposte</org>

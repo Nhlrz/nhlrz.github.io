@@ -19,9 +19,18 @@
     <metaLabel key="email">Email</metaLabel>
     <metaLabel key="phone">Phone</metaLabel>
     <action key="print">Print / PDF</action>
+    <action key="watch">Watch on YouTube</action>
     <langName>English</langName>
     <footer>Page generated from XML data · structured with RDFa &amp; JSON-LD (schema.org) for agents.</footer>
   </ui>
+
+  <section id="video" title="Introduction">
+    <video type="youtube" youtubeId="InMcm5gqHUs" src="">
+      <title>Nahel Ruiz — introduction video</title>
+      <caption>Short introduction video, subtitled in French, English and Arabic.</caption>
+      <hint>Your introduction video will appear here once the YouTube ID is added (youtubeId attribute).</hint>
+    </video>
+  </section>
 
   <section id="experience" title="Professional Experience">
     <!-- TODO Nahel: replace the title and bullets below with your real Docaposte responsibilities. -->

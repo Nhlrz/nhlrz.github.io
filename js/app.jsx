@@ -81,6 +81,18 @@ function parseCV(xmlString) {
         level: l.getAttribute("level"),
         label: l.textContent.trim(),
       }));
+    } else if (id === "video") {
+      const vEl = sec.getElementsByTagName("video")[0];
+      base.video = vEl
+        ? {
+            type: vEl.getAttribute("type") || "youtube",
+            youtubeId: (vEl.getAttribute("youtubeId") || "").trim(),
+            src: (vEl.getAttribute("src") || "").trim(),
+            title: txt(vEl, "title"),
+            caption: txt(vEl, "caption"),
+            hint: txt(vEl, "hint"),
+          }
+        : {};
     }
     return base;
   });
@@ -242,7 +254,93 @@ function LanguagesSection({ section, delay }) {
   );
 }
 
-function Section({ section, delay }) {
+/* ---------- Vidéo de présentation ---------- */
+
+function youtubeEmbedUrl(id, lang) {
+  const params = new URLSearchParams({
+    rel: "0",
+    modestbranding: "1",
+    cc_load_policy: "1",   // afficher les sous-titres
+    cc_lang_pref: lang,    // ...dans la langue active du site
+    hl: lang,              // langue de l'interface du lecteur
+  });
+  // youtube-nocookie : domaine "privacy-enhanced"
+  return `https://www.youtube-nocookie.com/embed/${id}?${params.toString()}`;
+}
+function youtubeWatchUrl(id) {
+  return `https://www.youtube.com/watch?v=${id}`;
+}
+
+function VideoSection({ section, delay, lang, watchLabel }) {
+  const v = section.video || {};
+  const hasYouTube = v.type === "youtube" && v.youtubeId;
+  const hasHtml5 = v.type === "html5" && v.src;
+  const ready = hasYouTube || hasHtml5;
+  const videoRef = React.useRef(null);
+
+  // HTML5 : afficher la piste de sous-titres qui correspond à la langue active
+  useEffect(() => {
+    const el = videoRef.current;
+    if (!el || !el.textTracks) return;
+    for (const t of el.textTracks) {
+      t.mode = t.language === lang ? "showing" : "disabled";
+    }
+  }, [lang, ready]);
+
+  return (
+    <section className="section animate" style={{ animationDelay: `${delay}s` }}>
+      <h2 className="section-eyebrow">{section.title}</h2>
+      <div className="video" property="subjectOf" typeof="VideoObject">
+        {v.title && <span className="sr-only" property="name">{v.title}</span>}
+
+        {ready ? (
+          <div className="video-frame">
+            {hasYouTube ? (
+              <iframe
+                key={lang}
+                src={youtubeEmbedUrl(v.youtubeId, lang)}
+                title={v.title || "video"}
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                property="embedUrl"
+              ></iframe>
+            ) : (
+              <video ref={videoRef} controls preload="metadata" src={v.src} property="contentUrl">
+                {Object.keys(LANGS).map((code) => (
+                  <track
+                    key={code}
+                    kind="subtitles"
+                    src={`data/subs/subs-${code}.vtt`}
+                    srcLang={code}
+                    label={LANGS[code].name}
+                    default={code === lang}
+                  />
+                ))}
+              </video>
+            )}
+          </div>
+        ) : (
+          <div className="video-placeholder">
+            <span className="video-play" aria-hidden="true">▶</span>
+            <p>{v.hint}</p>
+          </div>
+        )}
+
+        {v.caption && <p className="video-caption" property="description">{v.caption}</p>}
+        {hasYouTube && (
+          <a className="watch" href={youtubeWatchUrl(v.youtubeId)} target="_blank" rel="noopener" property="url">
+            {watchLabel || "YouTube"} ↗
+          </a>
+        )}
+      </div>
+    </section>
+  );
+}
+
+function Section({ section, delay, lang, watchLabel }) {
+  if (section.id === "video")
+    return <VideoSection section={section} delay={delay} lang={lang} watchLabel={watchLabel} />;
   if (section.id === "skills") return <SkillsSection section={section} delay={delay} />;
   if (section.id === "languages") return <LanguagesSection section={section} delay={delay} />;
   return <TimelineSection section={section} delay={delay} />;
@@ -311,7 +409,13 @@ function App() {
       <main className="cv">
         <Hero person={data.person} labels={data.ui.metaLabels} />
         {data.sections.map((sec, i) => (
-          <Section key={sec.id} section={sec} delay={0.08 + i * 0.06} />
+          <Section
+            key={sec.id}
+            section={sec}
+            delay={0.08 + i * 0.06}
+            lang={lang}
+            watchLabel={data.ui.actions.watch}
+          />
         ))}
         <footer className="cv-footer">
           <div className="gen">{data.ui.footer}</div>

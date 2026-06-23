@@ -61,6 +61,26 @@
   }
   </script>
 
+  <!--
+    Vidéo de présentation (schema.org/VideoObject).
+    À compléter une fois la vidéo en ligne : remplacez VIDEO_ID par l'identifiant
+    YouTube et ajustez uploadDate (format AAAA-MM-JJ). thumbnailUrl se déduit de l'ID.
+  -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "Vidéo de présentation — Nahel Ruiz",
+    "description": "Courte vidéo de présentation, sous-titrée en français, anglais et arabe.",
+    "inLanguage": ["fr", "en", "ar"],
+    "uploadDate": "2026-01-01",
+    "thumbnailUrl": "https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg",
+    "embedUrl": "https://www.youtube-nocookie.com/embed/VIDEO_ID",
+    "contentUrl": "https://www.youtube.com/watch?v=VIDEO_ID",
+    "author": { "@type": "Person", "name": "Nahel Ruiz" }
+  }
+  </script>
+
   <!-- Polices : IBM Plex Sans (latin), IBM Plex Mono (utilitaire/data), IBM Plex Sans Arabic -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

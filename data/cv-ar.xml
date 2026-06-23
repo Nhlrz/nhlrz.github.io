@@ -20,9 +20,18 @@
     <metaLabel key="email">البريد الإلكتروني</metaLabel>
     <metaLabel key="phone">الهاتف</metaLabel>
     <action key="print">طباعة / PDF</action>
+    <action key="watch">المشاهدة على يوتيوب</action>
     <langName>العربية</langName>
     <footer>صفحة مُولّدة من بيانات XML · مُهيكلة بـ RDFa وJSON-LD (schema.org) من أجل الوكلاء.</footer>
   </ui>
+
+  <section id="video" title="تقديم">
+    <video type="youtube" youtubeId="InMcm5gqHUs" src="">
+      <title>فيديو تعريفي بناهل رويز</title>
+      <caption>فيديو تعريفي قصير، مترجَم إلى الفرنسية والإنجليزية والعربية.</caption>
+      <hint>سيظهر الفيديو التعريفي هنا بعد إضافة معرّف يوتيوب (السمة youtubeId).</hint>
+    </video>
+  </section>
 
   <section id="experience" title="الخبرة المهنية">
     <!-- TODO ناهل: استبدل المسمّى الوظيفي والنقاط أدناه بمهامك الحقيقية في دوكابوست. -->
